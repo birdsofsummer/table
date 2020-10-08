@@ -1,7 +1,7 @@
 const fs=require("fs")
 const mustache=require("mustache")
 
-format=(o=[],output="readme.md")=>{
+const format=(o=[],output="readme.md")=>{
     t="./table.mustache"
     template=fs.readFileSync(t).toString()
     o1=o.map((v,k)=>({"#":k+1,...v}))
@@ -21,10 +21,10 @@ format=(o=[],output="readme.md")=>{
 
 test=()=>{
     o=[
-        {x:11,y:21},
-        {x:12,y:22},
-        {x:13,y:23},
-        {x:14,y:24},
+        {x:11,y:21,url:"www.baidu.com"},
+        {x:12,y:22,url:"www.baidu.com"},
+        {x:13,y:23,url:"www.baidu.com"},
+        {x:14,y:24,url:"www.baidu.com"},
     ]
     format(o)
 }
