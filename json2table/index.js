@@ -10,7 +10,7 @@ const format=(o=[],output="readme.md")=>{
         title,
         data:o1,
         kk:function(){
-           return Object.values(this).join("|")+"|"
+           return Object.values(this).join("|")
         },
     }
     const r=mustache.render(template,d)
