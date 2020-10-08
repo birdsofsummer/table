@@ -2,18 +2,18 @@ const fs=require("fs")
 const mustache=require("mustache")
 
 const format=(o=[],output="readme.md")=>{
-    t="./table.mustache"
-    template=fs.readFileSync(t).toString()
-    o1=o.map((v,k)=>({"#":k+1,...v}))
-    let title=Object.keys(o1[0])
-    d={
+    const t="./table.mustache"
+    const template=fs.readFileSync(t).toString()
+    const o1=o.map((v,k)=>({"#":k+1,...v}))
+    const title=Object.keys(o1[0])
+    const d={
         title,
         data:o1,
         kk:function(){
            return Object.values(this).join("|")+"|"
         },
     }
-    r=mustache.render(template,d)
+    const r=mustache.render(template,d)
     fs.writeFileSync(output,r)
     console.log(output,"done")
 }
